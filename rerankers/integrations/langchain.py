@@ -32,6 +32,7 @@ class RerankerLangChainCompressor(BaseDocumentCompressor):
         )
         final_results = []
         for r in results.top_k(kwargs.get("k", self.k)):
+            print(r)
             doc = doc_list[r["doc_id"]]
             doc.metadata["relevance_score"] = r["score"]
             final_results.append(doc)
